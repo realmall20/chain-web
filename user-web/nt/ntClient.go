@@ -24,8 +24,9 @@ type Response struct {
 	Msg string `json:"msg"`
 	ServerTime int64 `json:"server_time"`
 	RequestId string `json:"requst_id"`
-	Data interface{} `json:"data"`
+	Data map[string]string `json:"data"`
 }
+
 
 //通过“用户手机号”，到“全民数据链”--即国金公链 查询得到用户真实的区块链地址，存到数据库中 chain_addr: 区块链地址 中
 func GetNtUserDetailResp(phone string) Response {

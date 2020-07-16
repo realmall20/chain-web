@@ -1,11 +1,16 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 import ."chain-web2/user-web/handler"
+
+
 
 func main(){
 	router := gin.Default()
-	router.GET("/detail", UserDetail)
-	router.POST("/createChainAddress", CreateChainAddress)
+	v1 := router.Group("/api/v1/")
+	v1.GET("/detail", UserDetail)
+	v1.POST("/createChainAddress", CreateChainAddress)
 	router.Run(":8080")
 }
