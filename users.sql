@@ -1,3 +1,19 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 192.168.8.105
+ Source Server Type    : MySQL
+ Source Server Version : 80020
+ Source Host           : 192.168.8.105:3306
+ Source Schema         : test
+
+ Target Server Type    : MySQL
+ Target Server Version : 80020
+ File Encoding         : 65001
+
+ Date: 16/07/2020 22:03:48
+*/
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

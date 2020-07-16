@@ -1,7 +1,7 @@
 POST http://localhost:8080/api/v1/createChainAddress
 Content-Type: application/x-www-form-urlencoded
 
-phone=17756168888&idCard=330619199106122021&eid=12123123
+phone=17888888881&idCard=330619199106122021&eid=12123123
 
 ###
 
@@ -12,8 +12,8 @@ GET http://localhost:8080/api/v1/detail?phone=17888888881
 
 GET http://tt.nt-chain.cn/service/api/v1/users/detail?attributes=invitation_code,node_type,created_at,is_identity_validated,avatar,nickname,phone_number,spaced_used,chain_addr,nt&phone_number=17888888881
 X-Access-Key: DJ
-X-Time: 1594871581
-X-Signature: 022d437fd3bbb95cdb6665a7eec382f8
+X-Time: 1594908085
+X-Signature: 0b6e4667c179fd6f531951a613ee02b3
 Content-Type: application/json
 X-App-Type: Android
 

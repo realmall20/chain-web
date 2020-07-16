@@ -8,8 +8,10 @@ type User struct {
 	Phone  string `json:"phone"`
 	IdCard string `json:"id_card"`
 	Eid string `json:"eid"`
-	ChainAddress string `json:"chain_address"`
-	NtChainAddress string `json:"nt_chain_address"`
+	ChainAddr string `json:"chain_addr"`
+	FakeChainAddr string `json:"fake_chain_addr"`
+	UserSpace string `json:"user_space"`
+	SpaceUsed string `json:"space_used"`
 }
 
 var Users []User
@@ -27,7 +29,7 @@ func (user User) Insert() (id int64, err error) {
 
 //修改
 func (user *User) Update(phone string) (updateUser User, err error) {
-	if err = db.SqlDB.Select([]string{"phone"}).First(&updateUser, phone).Error; err != nil {
+	if err = db.SqlDB.Where("phone=?",phone).First(&updateUser).Error; err != nil {
 		return
 	}
 	if err = db.SqlDB.Model(&updateUser).Updates(&user).Error; err != nil {

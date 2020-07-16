@@ -30,7 +30,7 @@ type Response struct {
 
 //通过“用户手机号”，到“全民数据链”--即国金公链 查询得到用户真实的区块链地址，存到数据库中 chain_addr: 区块链地址 中
 func GetNtUserDetailResp(phone string) Response {
-	attr := "phone_number:user_space"
+	attr := "phone_number,chain_addr,spaced_used"
 	url := Url + "/service/api/v1/users/detail" + "?" + "attributes=" + attr + "&" + "phone_number=" + phone
 	req, err := http.NewRequest("GET", url, nil)
 	println(err)

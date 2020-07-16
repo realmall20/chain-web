@@ -16,7 +16,7 @@ func CreateChainAddress(c *gin.Context) {
 	user.IdCard = c.PostForm("idCard")
 	user.Eid = c.PostForm("eid")
 	//TODO 生成一个伪地址保存到数据库里面
-	user.ChainAddress = fmt.Sprintf("%x", md5.Sum([]byte(user.Phone+user.IdCard+user.Eid)))
+	user.FakeChainAddr = fmt.Sprintf("%x", md5.Sum([]byte(user.Phone+user.IdCard+user.Eid)))
 	user.Insert()
 	c.JSON(http.StatusOK, res(0, "success", nil))
 }
@@ -28,8 +28,8 @@ func UserDetail(c *gin.Context) {
 	if result.Code == 0 {
 		//TODO 获取 result.Data数据里面的区块链地址，保存到数据库
 		var user model.User
-		user.Phone=phone
-		user.NtChainAddress=result.Data["chain_address"]
+		user.ChainAddr = result.Data["chain_addr"]
+		user.SpaceUsed=result.Data["space_used"]
 		user.Update(phone)
 		c.JSON(http.StatusOK, res(0, result.Msg, result.Data))
 	} else {
