@@ -23,7 +23,7 @@ type Response struct {
 	Code int `json:"code"`
 	Msg string `json:"msg"`
 	ServerTime int64 `json:"server_time"`
-	RequestId string `json:"request_id"`
+	RequestId string `json:"requst_id"`
 	Data interface{} `json:"data"`
 }
 

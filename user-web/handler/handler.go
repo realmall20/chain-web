@@ -30,7 +30,7 @@ func CreateChainAddress(c *gin.Context){
 
 //通过“用户手机号”，到“全民数据链”--即国金公链 查询得到用户真实的区块链地址，存到数据库中 chain_addr: 区块链地址 中
 func UserDetail(c *gin.Context) {
-    phone :=  c.Query("phone_number")
+    phone :=  c.Query("phone")
     result := GetNtUserDetailResp(phone)
     if  result.Code == 0 {
         //TODO 获取 result.Data数据里面的区块链地址，保存到数据库

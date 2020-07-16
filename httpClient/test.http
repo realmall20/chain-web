@@ -6,14 +6,14 @@ phone=17756168888&idCard=330619199106122021&eid=12123123
 ###
 
 ###
-GET http://localhost:8080/detail?phone=17756168888
+GET http://localhost:8080/detail?phone=17888888881
 
 ###
 
-GET http://tt.nt-chain.cn/service/api/v1/users/detail?attributes=invitation_code,node_type,created_at,is_identity_validated,avatar,nickname,phone_number,spaced_used,chain_addr,nt&phone_number=18858587175
+GET http://tt.nt-chain.cn/service/api/v1/users/detail?attributes=invitation_code,node_type,created_at,is_identity_validated,avatar,nickname,phone_number,spaced_used,chain_addr,nt&phone_number=17888888881
 X-Access-Key: DJ
-X-Time: 1594822464
-X-Signature: 0f5c4b12551db5ef69bc9955f4d41a60
+X-Time: 1594871581
+X-Signature: 022d437fd3bbb95cdb6665a7eec382f8
 Content-Type: application/json
 X-App-Type: Android
 
