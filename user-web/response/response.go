@@ -20,8 +20,8 @@ func Result(code int, data interface{}, msg string, c *gin.Context) {
 	// 开始时间
 	c.JSON(http.StatusOK, Response{
 		code,
-		data,
 		msg,
+		data,
 	})
 }
 

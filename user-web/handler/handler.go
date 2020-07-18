@@ -3,15 +3,19 @@ package handler
 import (
 	"chain-web/user-web/model"
 	"chain-web/user-web/response"
+	"chain-web/user-web/sign"
 	"crypto/md5"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"sort"
 )
 import . "chain-web/user-web/nt"
 
 //通过用户手机号码+身份证号码+EID编码
 func CreateChainAddress(c *gin.Context) {
+	if !sign.VerifySign(c) {
+		response.FailWithMessage("验签失败",c)
+		return
+	}
 	var user model.User
 	user.Phone = c.PostForm("phone")
 	user.IdCard = c.PostForm("idCard")
@@ -28,8 +32,11 @@ func CreateChainAddress(c *gin.Context) {
 
 //通过“用户手机号”，到“全民数据链”--即国金公链 查询得到用户真实的区块链地址，存到数据库中 chain_addr: 区块链地址 中
 func UserDetail(c *gin.Context) {
-	phone := c.Query("phone")
-
+	if !sign.VerifySign(c) {
+		response.FailWithMessage("验签失败",c)
+		return
+	}
+	phone := c.PostForm("phone")
 	result := GetNtUserDetailResp(phone)
 	if result.Code == 0 {
 		var user model.User
@@ -42,13 +49,4 @@ func UserDetail(c *gin.Context) {
 	}
 }
 
-//验证签名
-func verify(c *gin.Context){
-	timestamp := c.Query("timestamp") // 13位时间戳
-	nonce := c.Query("nonce") //11位字符串
-	sign := c.Query("sign") //
-	device_num := c.Query("device_num") // 设备号码
-	mobile_os := c.Query("mobile_os_version") // 设备操作系统版本号
-	lng := c.Query("lng")
-	lat := c.Query("lat")
-}
+
