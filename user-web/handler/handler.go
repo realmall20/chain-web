@@ -6,7 +6,6 @@ import (
 	"crypto/md5"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 import . "chain-web/user-web/nt"
 
@@ -31,13 +30,12 @@ func UserDetail(c *gin.Context) {
 	phone := c.Query("phone")
 	result := GetNtUserDetailResp(phone)
 	if result.Code == 0 {
-		//TODO 获取 result.Data数据里面的区块链地址，保存到数据库
 		var user model.User
 		user.ChainAddr = result.Data["chain_addr"]
 		user.SpaceUsed=result.Data["space_used"]
 		user.Update(phone)
-		c.JSON(http.StatusOK, res(0, result.Msg, result.Data))
+		response.OkWithData(result,c)
 	} else {
-		c.JSON(http.StatusOK, res(result.Code, result.Msg, result.Data))
+		response.FailWithMessage("获取数据失败",c)
 	}
 }
