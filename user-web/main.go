@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 )
-import ."chain-web2/user-web/handler"
+import ."chain-web/user-web/handler"
 
 
 
@@ -12,5 +12,5 @@ func main(){
 	v1 := router.Group("/api/v1/")
 	v1.GET("/detail", UserDetail)
 	v1.POST("/createChainAddress", CreateChainAddress)
-	router.Run(":8080")
+	router.Run(":8089")
 }

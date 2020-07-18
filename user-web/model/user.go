@@ -1,7 +1,8 @@
 package model
 
 import (
-	 "chain-web2/user-web/db"
+	 "chain-web/user-web/db"
+	"log"
 )
 type User struct {
 	ID   int64 `json:"id"`
@@ -16,20 +17,17 @@ type User struct {
 
 var Users []User
 
-func (user User) Insert() (id int64, err error) {
+//操作用户指针，不需要返回ID
+func (user *User) Insert() (err error) {
 	//添加数据
-	result := db.SqlDB.Create(&user)
-	id =user.ID
-	if result.Error != nil {
-		err = result.Error
-		return
-	}
-	return
+	err = db.SqlDB.Create(&user).Error
+	return err
 }
 
 //修改
 func (user *User) Update(phone string) (updateUser User, err error) {
-	if err = db.SqlDB.Where("phone=?",phone).First(&updateUser).Error; err != nil {
+	if err = db.SqlDB.Where("phone=?",phone).First(&updateUser).Error; err != nil{
+	    log.Fatal("获取用户信息失败，phone={}",phone)
 		return
 	}
 	if err = db.SqlDB.Model(&updateUser).Updates(&user).Error; err != nil {

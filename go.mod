@@ -1,4 +1,4 @@
-module chain-web2
+module chain-web
 
 go 1.14
 
