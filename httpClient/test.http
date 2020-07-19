@@ -6,7 +6,7 @@ phone=17888888881&idCard=330619199106122021&eid=12123123&timestamp=1234567890123
 
 ###
 POST http://localhost:8080/api/v1/detail?phone=17888888881
-
+phone=17888888881&timestamp=1234567890123&nonce=12345678901&sign=5e47dced7af727563ba68f598c47ecd9ac94c799&device_num=12313&mobile_os=1231&mobile_os_version=1231&lng=0.0&lat=0.0
 ###
 
 GET http://tt.nt-chain.cn/service/api/v1/users/detail?attributes=invitation_code,node_type,created_at,is_identity_validated,avatar,nickname,phone_number,spaced_used,chain_addr,nt&phone_number=17888888881
