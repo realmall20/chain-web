@@ -10,6 +10,30 @@ import (
 
 //验证签名
 func VerifySign(c *gin.Context) bool {
+	if c.PostForm("timestamp") == ""{
+		return false
+	}
+	if c.PostForm("nonce") == ""{
+		return false
+	}
+	if c.PostForm("sign") == ""{
+		return false
+	}
+	if c.PostForm("device_num") == ""{
+		return false
+	}
+	if c.PostForm("mobile_os") == ""{
+		return false
+	}
+	if c.PostForm("mobile_os_version") == ""{
+		return false
+	}
+	if c.PostForm("lng") == ""{
+		return false
+	}
+	if c.PostForm("lat") == ""{
+		return false
+	}
 	a := make([]string, 0)
 	for k := range c.Request.Form {
 		if k != "nonce" && k != "sign" {
