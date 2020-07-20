@@ -1,3 +1,9 @@
+POST http://localhost:8089/api/v1/test/insert
+Content-Type: application/x-www-form-urlencoded
+
+id=123&name="123123"
+
+###
 POST http://localhost:8089/api/v1/createChainAddress
 Content-Type: application/x-www-form-urlencoded
 
@@ -26,3 +32,4 @@ Content-Type: application/json
 X-App-Type: Android
 
 {"mobile":"18867171234","invitation_code": "123"}
+
