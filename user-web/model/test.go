@@ -5,7 +5,7 @@ import (
 )
 type Test struct {
 	ID   int64 `json:"id"`
-	Name  string  `form:"name" json:"name" binding:"required"`
+	Name  string  `form:"name" json:"name" binding:"required,notEmpty"`
 }
 
 //操作用户指针，不需要返回ID

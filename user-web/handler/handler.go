@@ -8,8 +8,13 @@ import (
 
 func Insert(c *gin.Context) {
 	var user model.Test
-	c.ShouldBind(&user)
-	err :=user.Insert()
+	err:=c.ShouldBind(&user)
+	if err !=nil{
+		//需要显示的去检验错误信息
+		response.FailWithMessage(err.Error(),c)
+		return
+	}
+	err =user.Insert()
 	if err != nil{
 		response.FailWithMessage("数据保存失败",c)
 	}else {
