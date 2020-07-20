@@ -1,23 +1,11 @@
 settings:
-  application:
-    mode: dev  # dev开发环境 test测试环境 prod线上环境
-    host: 0.0.0.0
-    name: test
-    port: 8089
-    readtimeout: 1
-    writertimeout: 2
-    domain: localhost:8000
-    ishttps: false
-  log:
-    operdb: false
-    dir: temp/logs
-  jwt:
-    secret: go-admin
-    timeout: 3600
   database:
     name: test
-    dbtype: mysql
+    dbType: mysql
     host: 192.168.8.105
+    username: root
     password: BVYRDR2Z7X
     port: 3306
-    username: root
+    max-idle-conns: 10
+    max-open-conns: 10
+    log-mode: false
