@@ -1,11 +1,13 @@
-POST http://localhost:8089/api/v1/createChainAddress
+POST http://localhost:8089/api/v1/createFakeChainAddr
 Content-Type: application/x-www-form-urlencoded
 
-phone=17888888881&idCard=330619199106122021&eid=12123123&timestamp=1234567890123&nonce=12345678901&sign=5e47dced7af727563ba68f598c47ecd9ac94c799&device_num=12313&mobile_os=1231&mobile_os_version=1231&lng=0.0&lat=0.0
+phone=17888888882&id_card=330619199106122021&eid=12123123&timestamp=1234567890123&nonce=12345678901&sign=5e47dced7af727563ba68f598c47ecd9ac94c799&device_num=12313&mobile_os=1231&mobile_os_version=1231&lng=0.0&lat=0.0
 
 
 ###
-POST http://localhost:8080/api/v1/detail?phone=17888888881
+POST http://localhost:8080/api/v1/syncNt
+Content-Type: application/x-www-form-urlencoded
+
 phone=17888888881&timestamp=1234567890123&nonce=12345678901&sign=5e47dced7af727563ba68f598c47ecd9ac94c799&device_num=12313&mobile_os=1231&mobile_os_version=1231&lng=0.0&lat=0.0
 ###
 

@@ -18,7 +18,7 @@ func CreateChainAddress(c *gin.Context) {
 	}
 	var user model.User
 	user.Phone = c.PostForm("phone")
-	user.IdCard = c.PostForm("idCard")
+	user.IdCard = c.PostForm("id_card")
 	user.Eid = c.PostForm("eid")
 	//TODO 生成一个伪地址保存到数据库里面
 	user.FakeChainAddr = fmt.Sprintf("%x", md5.Sum([]byte(user.Phone+user.IdCard+user.Eid)))
@@ -31,7 +31,7 @@ func CreateChainAddress(c *gin.Context) {
 }
 
 //通过“用户手机号”，到“全民数据链”--即国金公链 查询得到用户真实的区块链地址，存到数据库中 chain_addr: 区块链地址 中
-func UserDetail(c *gin.Context) {
+func SyncNt(c *gin.Context) {
 	if !sign.VerifySign(c) {
 		response.FailWithMessage("验签失败",c)
 		return
