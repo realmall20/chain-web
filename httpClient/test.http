@@ -1,7 +1,7 @@
 POST http://localhost:8089/api/v1/test/insert
 Content-Type: application/x-www-form-urlencoded
 
-id=123&name="123123"
+
 
 ###
 POST http://localhost:8089/api/v1/createChainAddress
