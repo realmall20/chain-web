@@ -20,7 +20,7 @@ func Init() {
 	viper.SetConfigFile(dir)
 	content, err := ioutil.ReadFile(dir)
 	if err != nil {
-		log.Fatal(fmt.Sprintf("Read config file fail: %s", err.Error()))
+		log.Fatal(fmt.Sprintf("Read config file fail: %s,the dir is %s", err.Error(),dir))
 	}
 	err = viper.ReadConfig(strings.NewReader(os.ExpandEnv(string(content))))
 	if err != nil {
