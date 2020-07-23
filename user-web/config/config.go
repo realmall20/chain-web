@@ -3,26 +3,14 @@ package config
 import (
 	"fmt"
 	"github.com/spf13/viper"
-	"io/ioutil"
 	"log"
-	"os"
-	"path/filepath"
-	"strings"
 )
 
 var cfgDatabase *viper.Viper
 
 func Init() {
-	dir,err:= filepath.Abs("./user-web/config/settings.yml")
-	if err !=nil{
-		log.Fatal(fmt.Sprintf("Read  file fail: %s", err.Error()))
-	}
-	viper.SetConfigFile(dir)
-	content, err := ioutil.ReadFile(dir)
-	if err != nil {
-		log.Fatal(fmt.Sprintf("Read config file fail: %s,the dir is %s", err.Error(),dir))
-	}
-	err = viper.ReadConfig(strings.NewReader(os.ExpandEnv(string(content))))
+	viper.AddConfigPath("./user-web/config")
+	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatal(fmt.Sprintf("Parse config file fail: %s", err.Error()))
 	}
