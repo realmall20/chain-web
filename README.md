@@ -15,5 +15,4 @@ model : 数据库orm 对象
 nt : 国金公链的接口调用
 response: 统一格式的数据返回
 router : 路由管理器
-sign : 参数yan qian
-```
+sign : 参数验签
