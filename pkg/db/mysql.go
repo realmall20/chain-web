@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"chain-web/pkg/config"
 	"fmt"
-	"strconv"
-
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
+	"strconv"
 )
 
 var SqlDB *gorm.DB
