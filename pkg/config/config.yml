@@ -2,10 +2,12 @@ settings:
   database:
     name: test
     dbType: mysql
-    host: 192.168.8.105
+    host: 156.225.2.239
     username: root
     password: BVYRDR2Z7X
-    port: 3306
+    port: 13306
     max-idle-conns: 10
     max-open-conns: 10
     log-mode: false
+
+

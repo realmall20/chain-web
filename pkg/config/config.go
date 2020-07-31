@@ -9,7 +9,7 @@ import (
 var cfgDatabase *viper.Viper
 
 func Init() {
-	viper.AddConfigPath("./user-web/config")
+	viper.AddConfigPath("./pkg/config")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatal(fmt.Sprintf("Parse config file fail: %s", err.Error()))
@@ -20,6 +20,7 @@ func Init() {
 	}
 	DatabaseConfig = InitDatabase(cfgDatabase)
 }
+
 type Database struct {
 	Name     string
 	DBType   string

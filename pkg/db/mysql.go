@@ -2,11 +2,12 @@ package db
 
 import (
 	"bytes"
-	"chain-web/user-web/config"
-	_ "github.com/go-sql-driver/mysql"
+	"chain-web/pkg/config"
+	"fmt"
 	"strconv"
+
+	"github.com/jinzhu/gorm"
 )
-import "github.com/jinzhu/gorm"
 
 var SqlDB *gorm.DB
 var (
@@ -17,6 +18,7 @@ var (
 	Username string
 	Password string
 )
+
 func SetUp() {
 	//创建一个数据库的连接
 	var err error
@@ -39,10 +41,10 @@ func SetUp() {
 	conn.WriteString(Name)
 	conn.WriteString("?charset=utf8&parseTime=True&loc=Local&timeout=1000ms")
 
-	SqlDB, err = gorm.Open(DbType,  conn.String())
+	fmt.Println(conn.String())
+	SqlDB, err = gorm.Open(DbType, conn.String())
 	SqlDB.LogMode(true)
 	if err != nil {
 		panic("failed to connect database")
 	}
 }
-

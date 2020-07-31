@@ -1,14 +1,14 @@
 package handler
 
 import (
-	"chain-web/user-web/model"
-	"chain-web/user-web/response"
-	"chain-web/user-web/sign"
+	"chain-web/pkg/model"
+	"chain-web/pkg/response"
+	"chain-web/pkg/sign"
 	"crypto/md5"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )
-import . "chain-web/user-web/nt"
+import . "chain-web/pkg/nt"
 
 //通过用户手机号码+身份证号码+EID编码
 func CreateChainAddress(c *gin.Context) {

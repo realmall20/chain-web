@@ -1,7 +1,7 @@
 package model
 
 import (
-	"chain-web/user-web/db"
+	"chain-web/pkg/db"
 	"log"
 )
 
